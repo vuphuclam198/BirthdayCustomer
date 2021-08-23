@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2016 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="aht" translate="label" sortOrder="10">
+            <label>AHT</label>
+        </tab>
+        <section id="aht" translate="label" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Cron Order</label>
+            <tab>aht</tab>
+            <resource>AHT_BirthdayCustomer::index</resource>
+            <group id="birthday" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>email cron job</label>
+                <field id="template" translate="label" sortOrder="20" type="select" showInStore="1" showInDefault="1" >
+                    <label>Email template</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <backend_model>AHT\BirthdayCustomer\Model\Config\Backend\Order\Cron</backend_model>
+                </field>
+
+                 <field id="email_content" translate="label" type="textarea" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email Content</label>
+                </field>
+
+                <field id="email_sender" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Email sender</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>
